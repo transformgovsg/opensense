@@ -1,0 +1,25 @@
+services:
+  sense:
+    image: 975050287646.dkr.ecr.ap-southeast-1.amazonaws.com/ace-healthcare/data-copilot/main:${IMAGE_TAG?:IMAGE_TAG}
+    container_name: sense
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8051:8051"
+    env_file:
+      - .env
+  sense_db:
+    image: postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./scripts/chainlit_sql_inits:/docker-entrypoint-initdb.d
+      - sense-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: mysecretpassword
+
+volumes:
+  sense-data:
+    driver: local

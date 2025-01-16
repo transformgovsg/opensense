@@ -1,0 +1,48 @@
+[tool.poetry]
+name = "sense"
+version = "0.1.0"
+description = ""
+authors = [
+    "Aniruddha Adhikary <aniruddha-adhikary@users.noreply.github.com>",
+    "Wilson Wan <wholesomewilson@users.noreply.github.com>"
+]
+readme = "README.md"
+packages = [{ include = "sense" }]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+asyncpg = "^0.29.0"
+boto3 = "^1.34.104"
+httpx = "^0.27.0"
+jq = "^1.7.0"
+langchain = "^0.2.5"
+langchain-openai = "0.1.19"
+langfuse = "2.27.2"
+openai = "^1.6.1"
+pydantic-settings = "^2.2.1"
+retry-async = "^0.1.4"
+langchain-community = "^0.2.5"
+sqlparse = "^0.5.1"
+types-cachetools = "^5.5.0.20240820"
+chainlit = { url = "https://github.com/transformgovsg/chainlit/releases/download/v1.1.502/chainlit-1.1.502.tar.gz" }
+pydantic = "2.9.2"
+
+[tool.poetry.group.ui.dependencies]
+tabulate = "^0.9.0"
+pandas = "^2.2.1"
+pandas-stubs = "^2.2.1.240316"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.3"
+watchdog = "^4.0.0"
+flake8 = "^7.0.0"
+black = "^24.4.2"
+mypy = "^1.10.0"
+aiosqlite = "^0.20.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 79

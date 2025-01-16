@@ -1,0 +1,27 @@
+@import url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css);
+
+table.MuiTable-root {
+    overflow-x: auto !important;
+}
+
+table.MuiTable-root th,
+table.MuiTable-root td {
+    min-width: 120px !important;
+}
+
+li {
+    line-height: 1.5em;
+}
+
+.watermark {
+    display: none !important;
+}
+
+#header > img {
+    max-height: 30px !important;
+}
+
+span[aria-label="Helpful"],
+span[aria-label="Not helpful"] {
+    display: none !important;
+}

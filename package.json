@@ -1,0 +1,59 @@
+{
+  "devDependencies": {
+    "@playwright/test": "^1.48.0",
+    "@types/dotenv": "^8.2.0",
+    "@types/node": "^22.7.5",
+    "@typescript-eslint/eslint-plugin": "^8.11.0",
+    "@typescript-eslint/parser": "^8.11.0",
+    "eslint": "^9.13.0",
+    "eslint-config-prettier": "^9.1.0",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.7",
+    "prettier": "^3.3.3",
+    "typescript": "^5.6.3"
+  },
+  "scripts": {
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.py": [
+      "poetry run flake8 --count --select=E9,F63,F7,F82 --show-source",
+      "poetry run flake8 --count --exit-zero",
+      "poetry run mypy"
+    ],
+    "*.ts": [
+      "prettier --write"
+    ],
+    "infra/**/*.hcl": [
+      "terragrunt hclfmt --terragrunt-hclfmt-file"
+    ]
+  },
+  "release": {
+    "branches": [
+      {
+        "name": "main"
+      },
+      {
+        "name": "chore/dc-248-chainlit-amd64",
+        "prerelease": "alpha"
+      }
+    ],
+    "plugins": [
+      [
+        "@semantic-release/commit-analyzer",
+        {
+          "releaseRules": [
+            { "subject": "\\[MAJOR\\]*", "release": "major" },
+            { "subject": "\\[MINOR\\]*", "release": "minor" },
+            { "subject": "*", "release": "patch" }
+          ]
+        }
+      ],
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/gitlab"
+    ]
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5"
+  }
+}
