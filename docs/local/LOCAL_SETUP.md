@@ -43,7 +43,7 @@ Each service requires its own .env configuration file. If a service uses an `env
 
 Each service has a corresponding .env.xxx.example template file. Review these templates and fill in the required configuration values.
 
-After cloning the [Sense](https://github.com/transformgovsg/sense) and [Sense Admin](https://github.com/transformgovsg/sense-admin) repositories, use the .env.xxx.example files as references to set up your configurations.
+After cloning the [Sense](https://github.com/transformgovsg/opensense) and [Sense Admin](https://github.com/transformgovsg/opensense-admin) repositories, use the .env.xxx.example files as references to set up your configurations.
 
 ### Sense
 
@@ -81,7 +81,7 @@ docker compose -f sense-full-suite-docker-compose.yml build sense
 
 ### Sense Admin
 
-Visit [Sense Admin](https://github.com/transformgovsg/sense-admin) and refer to the "Setting Up" section for instructions on the setup.
+Visit [Sense Admin](https://github.com/transformgovsg/opensense-admin) and refer to the "Setting Up" section for instructions on the setup.
 
 ## Services Setup & Boot Order
 
